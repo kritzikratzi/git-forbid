@@ -7,7 +7,7 @@ Based on https://www.emptypath.com/git_pre_commit_testing
 
 ## Global Setup
 
-Clone this repostory to `~/git-books` and then run 
+Clone this repostory to `~/git-hooks` and then run 
 
 	git config --global core.hooksPath ~/git-hooks
 
@@ -18,3 +18,16 @@ Clone this repostory to `~/git-books` and then run
 	
 	# commit should fail! 
 	git commit
+	
+	# Output: 
+	Git-Forbid messages found!
+	Please remove the following: 
+	-----------------------------
+	testfile.txt:1: /* git-forbid */
+	-----------------------------
+	Error found, aborting commit
+	
+	
+## Disabling git-forbid for a single commit 
+
+	git commit --no-verify
