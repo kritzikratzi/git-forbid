@@ -2,7 +2,7 @@
 
 A tiny git hook to stop you from committing text files containting the words `git-forbid`. 
 
-Based on https://www.emptypath.com/git_pre_commit_testing
+Originally based on https://www.emptypath.com/git_pre_commit_testing
 
 
 ## Global Setup
@@ -13,21 +13,25 @@ Clone this repostory to `~/git-hooks` and then run
 
 ## Test it out
 
+	git init
 	echo "/* git-forbid */ \n#define somethingawefull" >testfile.txt
 	git add testfile.txt
 	
-	# commit should fail! 
+	# try to commit 
 	git commit
 	
 	# Output: 
-	Git-Forbid messages found!
-	Please remove the following: 
+	git-forbid messages found. 
 	-----------------------------
-	testfile.txt:1: /* git-forbid */
+	test.txt:git-forbid
 	-----------------------------
-	Error found, aborting commit
+	Errors found, aborting commit. 
+	To fix this, edit and stage the files.
+	To ignore this error, use: git commit --no-verify
 	
 	
 ## Disabling git-forbid for a single commit 
+
+Use can disable git hooks for a single command by using 
 
 	git commit --no-verify
