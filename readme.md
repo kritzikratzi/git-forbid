@@ -23,7 +23,7 @@ Clone this repostory to `~/git-hooks` and then run
 	# Output: 
 	git-forbid messages found. 
 	-----------------------------
-	test.txt:git-forbid
+	testfile.txt: /* git-forbid */
 	-----------------------------
 	Errors found, aborting commit. 
 	To fix this, edit and stage the files.

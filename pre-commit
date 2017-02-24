@@ -3,7 +3,13 @@
 # Available under the BSD3 license, which can be found in the
 # LICENSE file in the same directory as this file.
 
-res="`git grep --cached --color=always "git-forbid"`"
+# Flags: 
+# --cached: search staging
+# --color=always: highlight the search result
+# --n: display line numbers
+# -I: ignore binary files
+# -F: simple search, no regex
+res="`git grep --cached --color=always -n -I -F "git-forbid"`"
 
 if [[ -z "${res// }" ]]
 then
